@@ -5,13 +5,14 @@ import { FoodListComponent } from './food-list.component';
 
 @Component({
   selector: 'my-app',
+  directives: [FoodListComponent],
   template:`
   <h1>Angular Test</h1>
   <food-list [foodList]="foods"></food-list>
   `
 })
 export class AppComponent {
-  public foods = Food[];
+  public foods : Food[];
   constructor() {
     this.foods = [new Food("Ceviche", "I got food poisoning", 435), new Food("Cevapi", "Muy delicioso", 214), new Food("Cerveza", "Ah yes", 110)]
   }
