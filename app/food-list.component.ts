@@ -26,6 +26,7 @@ export class FoodListComponent {
   }
   foodClicked(clickedFood: Food): void {
     this.onFoodSelect.emit(clickedFood);
+    console.log(clickedFood.name);
   }
   addFood(food: Food) {
     this.foodList.push(food);
