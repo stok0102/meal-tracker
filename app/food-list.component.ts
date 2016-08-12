@@ -13,7 +13,7 @@ import { NewFoodComponent } from './new-food.component';
     <div *ngFor="#food of foodList ">
       <food [currentFood]="food" (click)="foodClicked(food)"></food>
     </div>
-    <new-food (addFoodEvent)="addFood($event)"></new-food>
+    <new-food (newFoodEvent)="addFood($event)"></new-food>
   `
 })
 
@@ -27,7 +27,7 @@ export class FoodListComponent {
   foodClicked(clickedFood: Food): void {
     this.onFoodSelect.emit(clickedFood);
   }
-  addFood() {
-
+  addFood(food: Food) {
+    this.foodList.push(food);
   }
 }
