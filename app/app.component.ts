@@ -14,7 +14,7 @@ import { FoodListComponent } from './food-list.component';
 export class AppComponent {
   public foods : Food[];
   constructor() {
-    this.foods = [new Food("Ceviche", "I got food poisoning", 435), new Food("Cevapi", "Muy delicioso", 214), new Food("Cerveza", "Ah yes", 110)]
+    this.foods = [new Food("Ceviche", "I got food poisoning", 435, 0), new Food("Cevapi", "Muy delicioso", 214, 1), new Food("Cerveza", "Ah yes", 110, 2)]
   }
 }
 // export class AppComponent {
