@@ -5,7 +5,10 @@ import { Food } from './food.model';
 selector:'edit-food-details',
 inputs: ['food'],
 template:`
-<h3>Edit Description: {{ food.description }}</h3>    
+<h3>Edit Food</h3>
+<input [(ngModel)]="food.name"/>
+<input [(ngModel)]="food.review"/>
+<input [(ngModel)]="food.calories"/>
 `
 })
 export class EditFoodDetailsComponent{

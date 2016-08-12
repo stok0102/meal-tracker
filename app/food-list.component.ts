@@ -3,15 +3,21 @@ import { Food } from './food.model';
 import { FoodComponent } from './food.component';
 import { NewFoodComponent } from './new-food.component';
 import { EditFoodDetailsComponent } from './edit-food-details.component';
+import { CaloriePipe } from './calorie.pipe';
 
 @Component({
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
   directives: [FoodComponent, NewFoodComponent, EditFoodDetailsComponent],
+  pipes: [CaloriePipe],
   template: `
-
-    <div *ngFor="#food of foodList ">
+    <select (change)="onChange($event.target.value)">
+      <option value="all"selected="selected">Show All</option>
+      <option value="high">Show High Cal</option>
+      <option value="low">Show Low Cal</option>
+    </select>
+    <div *ngFor="#food of foodList | calorie:selectedCalorie">
       <food [currentFood]="food" (click)="foodClicked(food)"></food>
     </div>
     <new-food (newFoodEvent)="addFood($event)"></new-food>
@@ -20,6 +26,7 @@ import { EditFoodDetailsComponent } from './edit-food-details.component';
 })
 
 export class FoodListComponent {
+  public selectedCalorie: string = "low";
   public foodList: Food[];
   public selectedFood: Food;
   public onFoodSelect: EventEmitter<Food>;
@@ -34,4 +41,8 @@ export class FoodListComponent {
   addFood(food: Food) {
     this.foodList.push(food);
   }
+  onChange(optionFromMenu) {
+  this.selectedCalorie = optionFromMenu;
+  console.log(this.selectedCalorie);
+}
 }

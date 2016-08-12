@@ -7,6 +7,7 @@ import { Food } from './food.model';
   outputs: ['newFoodEvent'],
   template:`
   <div>
+    <h3>Add Food</h3>
     <input placeholder="Name" class="col-sm-8 input-lg" #newName>
     <input placeholder="Review" class="col-sm-8 input-lg" #newReview>
     <input type="number" min="0" placeholder="Calories" class="col-sm-8 input-lg" #newCalories>
